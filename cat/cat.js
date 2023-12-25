@@ -1,4 +1,6 @@
 //setup
+let points = [];
+
 function setup() {
 
     createCanvas(800, 800);
@@ -10,7 +12,7 @@ function setup() {
 //main draw function
 function draw() {
 
-    background(75, 82, 126);
+    background(75, 82, 126, 90);
 
     //cat head
     fill(17, 32, 49);
@@ -87,12 +89,26 @@ function draw() {
         pop();
     }
 
+    // Draw the curve
     push();
-    strokeWeight(8)
-    stroke(0);
-    fill(0);
-    //circle(mouseX, mouseY, 15);
-    line(mouseX, mouseY, pmouseX, pmouseY);
+    strokeWeight(8);
+    stroke(255, 49, 49);
+    noFill();
+
+    beginShape();
+    for (let i = 0; i < points.length; i++) {
+        curveVertex(points[i].x, points[i].y);
+    }
+    endShape();
     pop();
+
+    // Add the current mouse position to the points array
+    points.push({ x: mouseX, y: mouseY });
+
+    // Limit the number of points to avoid performance issues
+    if (points.length > 5) {
+        points.shift();
+    }
+
 
 }
