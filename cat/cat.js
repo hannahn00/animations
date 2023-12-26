@@ -1,9 +1,11 @@
 //cat sound
+/*
 let mySound;
 function preload() {
   soundFormats('mp3', 'ogg');
   mySound = loadSound('catscream.mp3');
 }
+*/
 
 
 //setup
@@ -15,11 +17,12 @@ function setup() {
     frameRate(16);
     noStroke();
 
+    /*
     // Play the sound once when the sketch is set up
     if (mySound.isLoaded()) {
         mySound.play();
     }
-
+    */
 
 }
 
@@ -52,8 +55,8 @@ function draw() {
 
     //text
     fill(235, 232, 199);
-    textSize(15);
-    text("click Mr. Whiskers' mouth", 315, 200);
+    textSize(20);
+    text('dont wake up the cat!', 305, 220);
     
     
     //left eye
@@ -109,7 +112,7 @@ function draw() {
     
 
     //around nose -> cat is awake
-    else if (dist(mouseX, mouseY, 400, 488) < 10) {
+    else if (dist(mouseX, mouseY, 400, 488) < 30) {
         
         //sclera
         fill(242, 247, 161);
@@ -133,7 +136,7 @@ function draw() {
         ellipse(400, 480, 120, 170);
 
         //sound
-        mySound.play();
+        //mySound.play();
         
     }
 
