@@ -1,10 +1,25 @@
 let rules = {
-    //X: "F[+X][-X]",
-    X: "F[+X-X][X+X][-X+X][-X-X]",
+    //berry plant 1
+    //X: "F[+X][-BX]",
+    
+    //berry plant 2
+    //X: "F[+X][-X]XXA",
+
+    
+    //tree 1
+    //X: "F[-X+F-]+[-X+X][X-X][X--X]-F",
+
+    //tree 2
+    //X: "F[-X+X][-X-X][-X+X][X+X]",
+
+    //tree 3
+    //X: "F[-X++F-]+[-X+X-][X---X-][--X-X-]F",
+
+
     F: "FF",
   }
   
-  let len = 3;
+  let len = 4;
   let ang;
   
   
@@ -14,7 +29,7 @@ let rules = {
   
   function setup() {
     createCanvas(400, 400);
-    ang = (PI/180 * 22); 
+    ang = (PI/180 * 25); 
     drawRules = {
       "F": () => {
         stroke(100, 50, 0);
@@ -75,6 +90,7 @@ let rules = {
   function mouseReleased() {
     word = generate();
     draw();
+    console.log(word);
   }
   
   function generate() {
